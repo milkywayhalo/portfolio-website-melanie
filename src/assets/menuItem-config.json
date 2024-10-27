@@ -1,0 +1,56 @@
+[
+  {
+    "label": "Home",
+    "icon": "pi pi-home",
+    "route": "/home",
+    "visible": "true"
+  },
+  {
+    "label": "Projects",
+    "icon": "pi pi-home",
+    "route": "/projects",
+    "visible": true
+  },
+  {
+    "label": "Photography",
+    "icon": "pi pi-search",
+    "route": "/photography",
+    "visible": true,
+    "items": [
+      {
+        "label": "Fashion",
+        "icon": "pi pi-bolt"
+      },
+      {
+        "label": "Street",
+        "icon": "pi pi-server"
+      },
+      {
+        "label": "Portrait",
+        "icon": "pi pi-palette",
+        "items": [
+          {
+            "label": "Black and White",
+            "icon": "pi pi-palette"
+          },
+          {
+            "label": "Color",
+            "icon": "pi pi-palette"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "About",
+    "icon": "pi pi-envelopee",
+    "route": "/about",
+    "visible": true
+  },
+  {
+    "label": "Download my CV",
+    "icon": "pi pi-envelopee",
+    "route": "/cv",
+    "visible": true
+  }
+]

@@ -1,64 +1,36 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { Observable } from 'rxjs';
+import { NavbarConfigService } from '../services/navbar-config.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterOutlet, MenubarModule],
+  imports: [RouterOutlet, MenubarModule, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit {
-  items: MenuItem[] | undefined;
+  items: MenuItem[] = [];
+
+  constructor(
+    private http: HttpClient,
+    private navbarService: NavbarConfigService
+  ) {}
 
   ngOnInit() {
-    this.items = [
-      {
-        label: 'Home',
-        icon: 'pi pi-home',
+    this.navbarService.getNavbarItems().subscribe(
+      (data) => {
+        this.items = data; // Setze die Items auf das empfangene Array
+        console.log(this.items); // Protokolliere das Array
       },
-      {
-        label: 'Features',
-        icon: 'pi pi-star',
-      },
-      {
-        label: 'Projects',
-        icon: 'pi pi-search',
-        items: [
-          {
-            label: 'Components',
-            icon: 'pi pi-bolt',
-          },
-          {
-            label: 'Blocks',
-            icon: 'pi pi-server',
-          },
-          {
-            label: 'UI Kit',
-            icon: 'pi pi-pencil',
-          },
-          {
-            label: 'Templates',
-            icon: 'pi pi-palette',
-            items: [
-              {
-                label: 'Apollo',
-                icon: 'pi pi-palette',
-              },
-              {
-                label: 'Ultima',
-                icon: 'pi pi-palette',
-              },
-            ],
-          },
-        ],
-      },
-      {
-        label: 'Contact',
-        icon: 'pi pi-envelope',
-      },
-    ];
+      (error) => {
+        console.error('Fehler beim Laden der Navbar-Items:', error); // Fehlerbehandlung
+      }
+    );
   }
 }
