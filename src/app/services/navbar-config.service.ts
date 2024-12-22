@@ -2,14 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-interface NavbarItem {
-  label: string;
-  route: string;
-  icon: string;
-  visible: boolean;
-  roles?: string[];
-}
+import { MenuItem } from '../shared/menuItemModel';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +12,7 @@ export class NavbarConfigService {
 
   constructor(private http: HttpClient) {}
 
-  getNavbarItems(): Observable<NavbarItem[]> {
-    return this.http.get<NavbarItem[]>(this.configUrl);
+  getNavbarItems(): Observable<MenuItem[]> {
+    return this.http.get<MenuItem[]>(this.configUrl);
   }
 }

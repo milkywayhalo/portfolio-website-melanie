@@ -21,6 +21,6 @@ import { HeaderComponent } from './header/header.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'portfolio-website-melanie';
+  title = 'Portfolio - Melanie Klippe';
   checked: boolean = false;
 }

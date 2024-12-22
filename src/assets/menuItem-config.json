@@ -3,7 +3,7 @@
     "label": "Home",
     "icon": "pi pi-home",
     "route": "/home",
-    "visible": "true"
+    "visible": true
   },
   {
     "label": "Projects",
