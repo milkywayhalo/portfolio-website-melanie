@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
-import { NavbarConfigService } from '../services/navbar-config.service';
+import { NavbarConfigService } from '../shared/services/navbar-config.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
