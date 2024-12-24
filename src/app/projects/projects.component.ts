@@ -1,15 +1,19 @@
 import { inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FetchGithubReposService } from './service/fetch-github-repos.service';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent implements OnInit {
+  repoImages: string[] = [];
+  repos$!: Observable<any[]>; // Observable für Repositories
   private fetchGitHubRepos = inject(FetchGithubReposService);
 
   ngOnInit(): void {
@@ -17,13 +21,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   getRepos(): void {
-    this.fetchGitHubRepos.fetchUserRepos().subscribe({
-      next: (data) => {
-        console.log('Repositories:', data);
-      },
-      error: (err) => {
-        console.error('Fehler beim Abrufen der Repositories:', err);
-      },
-    });
+    this.repos$ = this.fetchGitHubRepos.fetchUserRepos();
   }
 }

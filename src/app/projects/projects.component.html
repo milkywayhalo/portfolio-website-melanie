@@ -1,1 +1,10 @@
 <p>projects works!</p>
+<div>Test</div>
+
+<ul *ngIf="repos$ | async as repos; else loading">
+  <li *ngFor="let repo of repos">
+    <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
+    <p>{{ repo.description }}</p>
+  </li>
+</ul>
+<ng-template #loading><p>Loading...</p></ng-template>
