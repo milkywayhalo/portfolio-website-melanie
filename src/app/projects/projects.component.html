@@ -1,5 +1,8 @@
-<p>projects works!</p>
-<div>Test</div>
+<!-- <ul *ngIf="images | async as images; else loading">
+  <li *ngFor="let image of images">
+    <img [src]="image" alt="Repository Image" />
+  </li>
+</ul> -->
 
 <ul *ngIf="repos$ | async as repos; else loading">
   <li *ngFor="let repo of repos">
@@ -7,4 +10,5 @@
     <p>{{ repo.description }}</p>
   </li>
 </ul>
+
 <ng-template #loading><p>Loading...</p></ng-template>

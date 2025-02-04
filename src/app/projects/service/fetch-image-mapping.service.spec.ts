@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FetchGitHubImagesService } from './fetch-git-hub-images.service';
+import { FetchGitHubImagesService } from './fetch-image-mapping.service';
 
 describe('FetchGitHubImagesService', () => {
   let service: FetchGitHubImagesService;

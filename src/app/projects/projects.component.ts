@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchGithubReposService } from './service/fetch-github-repos.service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { FetchGitHubImagesService } from './service/fetch-image-mapping.service';
 
 @Component({
   selector: 'app-projects',
@@ -12,15 +13,21 @@ import { Observable } from 'rxjs';
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent implements OnInit {
-  repoImages: string[] = [];
-  repos$!: Observable<any[]>; // Observable für Repositories
+  repos$!: Observable<any[]>;
+  imageMapping$!: Observable<{ [key: string]: string }>; // Mapping aus JSON
   private fetchGitHubRepos = inject(FetchGithubReposService);
+  private fetchProjectImages = inject(FetchGitHubImagesService);
 
   ngOnInit(): void {
+    // this.getImages();
     this.getRepos();
   }
 
   getRepos(): void {
     this.repos$ = this.fetchGitHubRepos.fetchUserRepos();
   }
+
+  /* getImages(): void {
+    this.imageMapping$ = this.fetchProjectImages.getImageMapping();
+  } */
 }
