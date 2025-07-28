@@ -26,12 +26,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.navbarService.getNavbarItems().subscribe(
       (data) => {
-        // Verarbeite jedes Item, um eine Navigation zu ermöglichen
         this.items = data
-          .filter((item) => item.visible) // Nur sichtbare Elemente laden
+          .filter((item) => item.visible)
           .map((item) => ({
             ...item,
-            command: () => this.router.navigate([item.route]), // Füge Navigationsbefehl hinzu
+            command: () => this.router.navigate([item.route]),
           }));
       },
       (error) => {
