@@ -1,6 +1,12 @@
 # PortfolioWebsiteMelanie
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+This project is a private workplace to practice my daily work skills and work in progress.
+
+My next Todos:
+- Fill the components next to the navbar with content of my private creative work and add text
+- Style the page with a fitting color-set
+- Testing the main components with unit tests
 
 ## Development server
 
